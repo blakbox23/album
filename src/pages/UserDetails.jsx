@@ -1,5 +1,6 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { NavLink } from "react-router-dom";
 import { fetchUser } from "../store/Actions/UsersActions";
 import { fetchUserAlbums } from "../store/Actions/UsersActions";
 
@@ -11,6 +12,7 @@ function UserDetails(){
 
     const dispatch = useDispatch();
     const { id } = useParams()
+    const { albumId } = useParams()
 
     const { user } = useSelector((state) => state.users);
     const { userAlbums } = useSelector((state) => state.users);
@@ -25,7 +27,6 @@ function UserDetails(){
       }, [dispatch]);
 
 
-
     return (
         <>
         { user.length > 0 && (
@@ -38,9 +39,11 @@ function UserDetails(){
 
     { userAlbums &&
         userAlbums.map((userAlbum) => (
+            <NavLink to={`/albums/${userAlbum.id}`}>
           <div key={userAlbum.id}>
             <p>{userAlbum.title}</p>
           </div>
+          </NavLink>
      ))}
           
         </>

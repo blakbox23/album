@@ -28,6 +28,13 @@ class AppApi {
     );
     return response.data;
   }
+
+  async getAlbum(payload) {
+    const response = await axios.get(
+      `https://jsonplaceholder.typicode.com/albums?id=${payload}`
+    );
+    return response.data[0];
+  }
 }
 
 export const api = new AppApi();
