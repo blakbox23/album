@@ -5,8 +5,7 @@ import AlbumsReducer from './AlbumsReducer';
 
 const rootReducer = combineReducers({
   users: UsersReducer,
-  albums: AlbumsReducer
-
+  albums: AlbumsReducer,
 });
 
 
