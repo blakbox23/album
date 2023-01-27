@@ -3,6 +3,7 @@ export const FETCH_ALBUMS_SUCCESS = "FETCH_ALBUMS_SUCCESS";
 export const FETCH_ALBUM = "FETCH_ALBUM";
 export const FETCH_ALBUM_SUCCESS = "FETCH_ALBUM_SUCCESS";
 
+
 export const fetchAlbums = () => ({
   type: FETCH_ALBUMS,
 });

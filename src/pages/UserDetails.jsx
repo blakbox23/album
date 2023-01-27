@@ -12,7 +12,6 @@ function UserDetails(){
 
     const dispatch = useDispatch();
     const { id } = useParams()
-    const { albumId } = useParams()
 
     const { user } = useSelector((state) => state.users);
     const { userAlbums } = useSelector((state) => state.users);

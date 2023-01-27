@@ -9,7 +9,8 @@ function* workGetAlbumSaga(action){
 
     yield put(
         fetchAlbumSuccess({
-          album: response
+          album: response.album,
+          photos: response.photos
         })
         )
  } catch (e) {

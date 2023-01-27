@@ -9,7 +9,8 @@ const initialState = {
   pending: false,
   error: null,
   albums: [],
-  album: undefined
+  album: undefined,
+  photos: []
 };
 
 const AlbumsReducer = (state = initialState, action) => {
@@ -39,6 +40,7 @@ const AlbumsReducer = (state = initialState, action) => {
         ...state,
         pending: false,
         album: action.payload.album,
+        photos: action.payload.photos,
         error: null,
       };
 
