@@ -36,17 +36,15 @@ class AppApi {
     const photosResponse = await axios.get(
       `https://jsonplaceholder.typicode.com/photos?albumId=${payload}`
     );
-
-    console.log('albumResponse')
-    console.log(albumResponse.data)
-    console.log('photosResponse')
-    console.log(photosResponse.data)
-
     const response = {album: albumResponse.data[0], photos: photosResponse.data}
-
-    console.log("response")
-console.log(response)
     return response;
+  }
+
+  async getPhoto(payload) {
+    const response = await axios.get(
+      `https://jsonplaceholder.typicode.com/photos/${payload}`
+    );
+    return response.data;
   }
 }
 

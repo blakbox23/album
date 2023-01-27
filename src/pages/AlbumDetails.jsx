@@ -16,6 +16,10 @@ function AlbumDetails() {
   const { album } = useSelector((state) => state.albums);
   const { photos } = useSelector((state) => state.albums);
 
+
+  console.log('album')
+  console.log(album)
+
   return (
     <>
       {album && (

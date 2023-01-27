@@ -4,6 +4,7 @@ import Login from './pages/Login'
 import Signup from './pages/Signup'
 import UserDetails from './pages/UserDetails'
 import AlbumDetails from './pages/AlbumDetails'
+import PhotoDetails from './pages/PhotoDetails'
 
 function App() {
 
@@ -14,6 +15,7 @@ function App() {
     <Route path="/sign-up" element={<Signup />} />
     <Route path="/users/:id" element={<UserDetails />} />
     <Route path="/albums/:id" element={<AlbumDetails />} />
+    <Route path="/photos/:id" element={<PhotoDetails />} />
 
 
   </Routes>
