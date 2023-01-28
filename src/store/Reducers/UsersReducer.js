@@ -11,7 +11,7 @@ const initialState = {
   pending: false,
   error: null,
   users: [],
-  user: [],
+  user: null,
   userAlbums: []
 };
 

@@ -7,6 +7,10 @@ function* workGetUserSaga(action){
   try {
     const response = yield call(api.getUser, action.payload);
 
+    console.log('response user saga')
+    console.log(response)
+
+
     yield put(
         fetchUserSuccess({
           user: response

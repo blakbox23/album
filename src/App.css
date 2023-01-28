@@ -6,3 +6,9 @@
 .user-details {
   font-size: .95rem;
 }
+
+.album-list {
+  width: 80%;
+  margin: auto;
+  max-width: 700px;
+}

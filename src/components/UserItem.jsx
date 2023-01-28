@@ -1,13 +1,8 @@
 import { useSelector } from "react-redux";
-import { Row } from "react-bootstrap";
-
-
 import { CgProfile } from "react-icons/cg";
 import { FaMousePointer } from "react-icons/fa";
 import { HiOutlineMailOpen } from "react-icons/hi";
-
 import { BsFillTelephoneFill } from "react-icons/bs";
-
 import { IoAlbumsOutline } from "react-icons/io5";
 
 

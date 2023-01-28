@@ -10,7 +10,7 @@ function AppNav() {
   return (
     <>
       {["sm"].map((expand) => (
-        <Navbar key={expand} bg="light" expand={expand} className="bg-white">
+        <Navbar key={expand} bg="light" expand={expand} className="bg-white mb-3">
           <Container className="d-flex justify-content-between">
           <div className="fw-bold fs-5">JIL Album</div>
 

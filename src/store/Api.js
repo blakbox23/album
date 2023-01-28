@@ -19,7 +19,7 @@ class AppApi {
     const response = await axios.get(
       `https://jsonplaceholder.typicode.com/users?id=${payload}`
     );
-    return response.data;
+    return response.data[0];
   }
 
   async getUserAlbums(payload) {

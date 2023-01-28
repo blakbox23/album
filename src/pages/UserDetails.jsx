@@ -5,49 +5,59 @@ import { fetchUser } from "../store/Actions/UsersActions";
 import { fetchUserAlbums } from "../store/Actions/UsersActions";
 
 import { useParams } from "react-router-dom";
+import AlbumItem from "../components/AlbumItem";
+import AppNav from "../components/AppNav";
+
+function UserDetails() {
+  const dispatch = useDispatch();
+  const { id } = useParams();
+
+  const { user } = useSelector((state) => state.users);
+  const { userAlbums } = useSelector((state) => state.users);
+
+  useEffect(() => {
+    dispatch(fetchUser(id));
+  }, [dispatch]);
+
+  useEffect(() => {
+    dispatch(fetchUserAlbums(id));
+  }, [dispatch]);
 
 
+  return (
+    <>
+    <AppNav />
+      {user && (
+        <div className="d-flex justify-content-around py-4  mb-3 flex-wrap">
+        <div className="d-flex flex-column justify-content-between">
+          <p><span className="fw-bold">Full Name</span> {user.name}</p>
+          <p><span className="fw-bold">Email</span> {user.email}</p>
+          <p><span className="fw-bold">Phone</span> {user.phone}</p>
+        </div>
+        <div>
+          <p><span className="fw-bold">City </span>{user.address.city}</p>
+          <p><span className="fw-bold">Company </span> {user.company.name}</p>
+          <p><span className="fw-bold">Website </span>{user.website}</p>
+        </div>
+        </div>
+      )}
 
-function UserDetails(){
-
-    const dispatch = useDispatch();
-    const { id } = useParams()
-
-    const { user } = useSelector((state) => state.users);
-    const { userAlbums } = useSelector((state) => state.users);
-
- 
-    useEffect(() => {
-        dispatch(fetchUser(id));
-      }, [dispatch]);
-
-      useEffect(() => {
-        dispatch(fetchUserAlbums(id));
-      }, [dispatch]);
-
-
-    return (
-        <>
-        { user.length > 0 && (
-            <div>
-           <p>{user[0].name}</p>
-           <p>{user[0].email}</p>
-           <p>{user[0].phone}</p>
-           </div>
-          )}
-
-    { userAlbums &&
+        <p className="text-center fs-3 fw-bold" >Albums</p>
+      {userAlbums &&
         userAlbums.map((userAlbum) => (
-            <NavLink to={`/albums/${userAlbum.id}`}>
-          <div key={userAlbum.id}>
-            <p>{userAlbum.title}</p>
-          </div>
+          <div key={userAlbum.id} className="album-list">
+          <NavLink
+            to={`/albums/${userAlbum.id}`}
+            className="text-decoration-none"
+          >
+              <AlbumItem title={userAlbum.title} />
           </NavLink>
-     ))}
-          
-        </>
-    )
-        
-    }
+          </div>
+
+        ))}
+      <hr className="my-2" />
+    </>
+  );
+}
 
 export default UserDetails;
