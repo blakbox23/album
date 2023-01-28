@@ -1,18 +1,44 @@
 import { useSelector } from "react-redux";
+import { Row } from "react-bootstrap";
 
 
-function UserItem({id, name}){
-    
-    const { albums } = useSelector((state) => state.albums);
-    const userAlbums = albums.filter((album)=> album.userId === id)
+import { CgProfile } from "react-icons/cg";
+import { FaMousePointer } from "react-icons/fa";
+import { HiOutlineMailOpen } from "react-icons/hi";
 
-    return(
-        <>
-        <p> count = {userAlbums.length}</p>
-        <p> name = {name}</p>
-        <p> id = {id}</p>
-        </>
-    )
+import { BsFillTelephoneFill } from "react-icons/bs";
+
+import { IoAlbumsOutline } from "react-icons/io5";
+
+
+
+function UserItem({ id, name, phone, website, email }) {
+  const { albums } = useSelector((state) => state.albums);
+  const userAlbums = albums.filter((album) => album.userId === id);
+
+  const IconsStyle = { color: "grey"}
+
+  return (
+    <>
+      <div className="h-100">
+       
+          <div >
+          
+            <p className="border-bottom py-3 ps-3 fw-bold text-muted">            
+              <span style={{fontSize: '1.5rem'}}><CgProfile /></span> <span>{name}</span>
+              </p>
+          </div>
+
+        <div className="text-dark user-details p-2">
+        <p className="w-100"> <HiOutlineMailOpen style={IconsStyle}/> {email}</p>
+          <p> <FaMousePointer style={IconsStyle}/> {website}</p>
+          <p> <IoAlbumsOutline style={IconsStyle}/> {userAlbums.length} albums</p>
+          <p> <BsFillTelephoneFill style={IconsStyle}/> {phone}</p>
+
+        </div>
+      </div>
+    </>
+  );
 }
 
-export default UserItem
+export default UserItem;
