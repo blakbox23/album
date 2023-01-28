@@ -23,37 +23,49 @@ function UserDetails() {
     dispatch(fetchUserAlbums(id));
   }, [dispatch]);
 
-
   return (
     <>
-    <AppNav />
+      <AppNav />
       {user && (
         <div className="d-flex justify-content-around py-4  mb-3 flex-wrap">
-        <div className="d-flex flex-column justify-content-between">
-          <p><span className="fw-bold">Full Name</span> {user.name}</p>
-          <p><span className="fw-bold">Email</span> {user.email}</p>
-          <p><span className="fw-bold">Phone</span> {user.phone}</p>
-        </div>
-        <div>
-          <p><span className="fw-bold">City </span>{user.address.city}</p>
-          <p><span className="fw-bold">Company </span> {user.company.name}</p>
-          <p><span className="fw-bold">Website </span>{user.website}</p>
-        </div>
+          <div className="d-flex flex-column justify-content-between">
+            <p>
+              <span className="fw-bold">Full Name</span> {user.name}
+            </p>
+            <p>
+              <span className="fw-bold">Email</span> {user.email}
+            </p>
+            <p>
+              <span className="fw-bold">Phone</span> {user.phone}
+            </p>
+          </div>
+          <div>
+            <p>
+              <span className="fw-bold">City </span>
+              {user.address.city}
+            </p>
+            <p>
+              <span className="fw-bold">Company </span> {user.company.name}
+            </p>
+            <p>
+              <span className="fw-bold">Website </span>
+              {user.website}
+            </p>
+          </div>
         </div>
       )}
 
-        <p className="text-center fs-3 fw-bold" >Albums</p>
+      <p className="text-center fs-4 fw-bold">ALBUMS</p>
       {userAlbums &&
         userAlbums.map((userAlbum) => (
           <div key={userAlbum.id} className="album-list">
-          <NavLink
-            to={`/albums/${userAlbum.id}`}
-            className="text-decoration-none"
-          >
+            <NavLink
+              to={`/albums/${userAlbum.id}`}
+              className="text-decoration-none text-capitalize"
+            >
               <AlbumItem title={userAlbum.title} />
-          </NavLink>
+            </NavLink>
           </div>
-
         ))}
       <hr className="my-2" />
     </>

@@ -8,7 +8,7 @@ function PhotoItem({ title, thumbnail }) {
         <Card style={{ width: "100%", margin:"auto" }}>
           <Card.Img variant="top" src={thumbnail} />
           <Card.Body>
-            <Card.Title className="fw-light">{title}</Card.Title>
+            <Card.Title className="fw-light text-capitalize">{title}</Card.Title>
           </Card.Body>
         </Card>
       </div>

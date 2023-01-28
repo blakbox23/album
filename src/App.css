@@ -1,14 +1,20 @@
-*{
+* {
   margin: 0;
   padding: 0;
 }
 
 .user-details {
-  font-size: .95rem;
+  font-size: 0.95rem;
 }
 
 .album-list {
   width: 80%;
   margin: auto;
   max-width: 700px;
+}
+
+.edit-hover:hover .edit-button {
+  color: black;
+  transform: scale(1.3, 1.3);
+  transition-duration: 0.66s;
 }
