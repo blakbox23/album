@@ -36,13 +36,32 @@ class AppApi {
     const photosResponse = await axios.get(
       `https://jsonplaceholder.typicode.com/photos?albumId=${payload}`
     );
-    const response = {album: albumResponse.data[0], photos: photosResponse.data}
+    const response = {
+      album: albumResponse.data[0],
+      photos: photosResponse.data,
+    };
     return response;
   }
 
   async getPhoto(payload) {
     const response = await axios.get(
       `https://jsonplaceholder.typicode.com/photos/${payload}`
+    );
+    return response.data;
+  }
+
+  async editPhoto(payload) {
+    console.log("payload");
+    console.log(payload.title);
+
+    const response = await axios.patch(
+      `https://jsonplaceholder.typicode.com/photos/${payload.id}`,
+      { title: payload.title },
+      {
+        headers: {
+          "Content-type": "application/json; charset=UTF-8",
+        },
+      }
     );
     return response.data;
   }

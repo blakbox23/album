@@ -4,6 +4,7 @@ import getUserSaga from "./GetUserSaga";
 import getUserAlbumsSaga from "./GetUserAlbumsSaga";
 import getAlbumSaga from "./GetAlbumSaga";
 import getPhotoSaga from "./GetPhotoSaga";
+import editPhotoSaga from "./EditPhotoTitleSaga";
 import { fork, all } from "redux-saga/effects";
 
 export default function* rootSaga() {
@@ -14,6 +15,7 @@ export default function* rootSaga() {
     fork(getUserAlbumsSaga),
     fork(getAlbumSaga),
     fork(getPhotoSaga),
+    fork(editPhotoSaga)
 
   ]);
 }
