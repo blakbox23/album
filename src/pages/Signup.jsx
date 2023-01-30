@@ -3,6 +3,7 @@ import { NavLink, useNavigate } from "react-router-dom";
 import { createUserWithEmailAndPassword } from "firebase/auth";
 import { auth } from "../authConfig/firebase";
 import GoogleSignin from "../components/GoogleSignin";
+import { Button } from "react-bootstrap";
 
 const Signup = () => {
   const navigate = useNavigate();
@@ -17,13 +18,12 @@ const Signup = () => {
       .then((userCredential) => {
         // Signed in
         const user = userCredential.user;
-        
-        sessionStorage.setItem('albumUser', user.uid);
+
+        sessionStorage.setItem("albumUser", user.uid);
         navigate("/home");
 
-        console.log('signup');
+        console.log("signup");
         console.log(user);
-
       })
       .catch((error) => {
         const errorCode = error.code;
@@ -34,49 +34,63 @@ const Signup = () => {
   };
 
   return (
-    <main>
-      <section>
-        <div>
-          <div>
-            <h1> FocusApp </h1>
-            <form>
-              <div>
-                <label htmlFor="email-address">Email address</label>
-                <input
-                  type="email"
-                  label="Email address"
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
-                  required
-                  placeholder="Email address"
-                />
-              </div>
+    <div className="auth-page">
+      <div className="d-flex p-4 border flex-column justify-content-center align-items-center mobile">
+        <h1 className="fs-4 fw-bold mb-3">Join our community</h1>
+        <form className="d-flex flex-column w-75">
+          <label className="mb-2">
+            <p className="mb-1">Email</p>
+            <input
+              className="p-2 ps-3 w-100 inpt"
+              id="email-address"
+              name="email"
+              type="email"
+              required
+              placeholder="Email address"
+              onChange={(e) => setEmail(e.target.value)}
+            />
+          </label>
 
-              <div>
-                <label htmlFor="password">Password</label>
-                <input
-                  type="password"
-                  label="Create password"
-                  value={password}
-                  onChange={(e) => setPassword(e.target.value)}
-                  required
-                  placeholder="Password"
-                />
-              </div>
+          <label className="mb-2">
+            <p className="mb-1">Password</p>
+            <input
+              className="p-2 ps-3 w-100 inpt"
+              id="password"
+              name="password"
+              type="password"
+              required
+              placeholder="Password"
+              onChange={(e) => setPassword(e.target.value)}
+            />
+          </label>
 
-              <button type="submit" onClick={onSubmit}>
-                Sign up
-              </button>
-            </form>
+          <Button onClick={onSubmit} className="mt-3 mb-3" variant="secondary">
+            Sign up
+          </Button>
 
-            <p>
-              Already have an account? <NavLink to="/login">Sign in</NavLink>
-            </p>
-          </div>
+          <p style={{ textAlign: "center" }}>or</p>
+        </form>
+
+        <div className="google-btn-container">
+          <GoogleSignin />
         </div>
-      </section>
-      <GoogleSignin />
-    </main>
+
+        <p>
+          Already have an account?{" "}
+          <NavLink
+            style={{
+              textDecoration: "none",
+              fontWeight: "bold",
+              color: "#5c636a",
+            }}
+            to="/login"
+          >
+            Sign in
+          </NavLink>
+        </p>
+      </div>
+      <div className="w-50 border h-100 d-none d-sm-flex login-banner"></div>
+    </div>
   );
 };
 

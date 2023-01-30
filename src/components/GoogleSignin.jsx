@@ -2,6 +2,7 @@ import { googleProvider } from "../authConfig/authMethods";
 import {auth} from "../authConfig/firebase"
 import { signInWithPopup, GoogleAuthProvider } from "firebase/auth";
 import { useNavigate } from "react-router-dom";
+import {FcGoogle} from "react-icons/fc"
 
 
 function GoogleSignin() {
@@ -35,7 +36,7 @@ function GoogleSignin() {
   return (
     <div className="GoogleSignin">
 
-      <button onClick={() => handleOnClick(googleProvider)}>Google</button>
+      <button className ="google-btn" onClick={() => handleOnClick(googleProvider)}><FcGoogle style={{fontSize:"1.5rem"}}/> Sign up with Google</button>
     </div>
   );
 }

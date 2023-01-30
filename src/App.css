@@ -32,17 +32,37 @@
   font-size: 0.95rem;
 }
 
-
 .login-banner {
- 
   background-color: #87e387;
-  background-image: url('../public/imgs/logins-removebg-preview.png');
+  background-image: url("../public/imgs/logins-removebg-preview.png");
   background-size: 70%;
   background-position: center;
   background-repeat: no-repeat;
+}
+
+.mobile {
+  width: 50%;
+}
+
+.google-btn-container {
+  width: 75%;
+  margin-bottom: 2rem;
+}
+.google-btn {
+  background-color: #fff;
+  outline: none;
+  border: 1px solid grey;
+  padding: 0.5rem;
+  width: 100%;
+  font-size: 0.95rem;
 
 }
 
-.mobile{
-width: 50%;
+
+@media only screen and (max-width: 586px) {
+ .mobile {
+    width: 100% !important;
+  }
+
+
 }
