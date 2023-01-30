@@ -25,7 +25,6 @@ function UserDetails() {
 
   return (
     <>
-      <AppNav />
       {user && (
         <div className="d-flex justify-content-around py-4  mb-3 flex-wrap">
           <div className="d-flex flex-column justify-content-between">

@@ -11,7 +11,6 @@ const Login = () => {
     const onLogin = (e) => {
         e.preventDefault();
         signInWithEmailAndPassword(auth, email, password)
-        auth.setPersistence
 
         .then((userCredential) => {
             // Signed in

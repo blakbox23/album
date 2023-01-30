@@ -6,13 +6,17 @@ import { NavLink } from "react-router-dom";
 import "../App.css";
 
 function AppNav() {
-
   return (
     <>
       {["sm"].map((expand) => (
-        <Navbar key={expand} bg="light" expand={expand} className="bg-white mb-3">
+        <Navbar
+          key={expand}
+          bg="light"
+          expand={expand}
+          className="bg-white mb-3"
+        >
           <Container className="d-flex justify-content-between">
-          <div className="fw-bold fs-5">JIL Album</div>
+            <div className="fw-bold fs-5">JIL Album</div>
 
             <Navbar.Toggle
               aria-controls={`offcanvasNavbar-expand-${expand}`}
@@ -26,40 +30,37 @@ function AppNav() {
             >
               <Offcanvas.Header closeButton>
                 <Offcanvas.Title id={`offcanvasNavbarLabel-expand-${expand}`}>
-                  Sokoni
+                  JiL Album
                 </Offcanvas.Title>
               </Offcanvas.Header>
               <Offcanvas.Body>
                 <div style={{ marginLeft: "auto" }}>
-                  <Nav className="justify-content-end flex-grow-1 pe-3">
-                    <Nav.Link to="/" as={NavLink}>
-                      Home
-                    </Nav.Link>
-                    <Nav.Link to="/about" as={NavLink}>
-                      About
-                    </Nav.Link>
-                    <Nav.Link to="/login" as={NavLink}>
-                      Login
-                    </Nav.Link>
-                    <Nav.Link to="/sign-up" as={NavLink}>
-                      Sign up
-                    </Nav.Link>
-
-                    <Nav.Link
-                      className={"d-md-none d-sm-none"}
-                      to="/login"
-                      as={NavLink}
-                    >
-                      Login
-                    </Nav.Link>
-                  </Nav>
+                  {true ? (
+                    <>
+                      <Nav className="justify-content-end flex-grow-1 pe-3">
+                        <Nav.Link to="/home" as={NavLink}>
+                          Home
+                        </Nav.Link>
+                        <Nav.Link to="/about" as={NavLink}>
+                          Log out
+                        </Nav.Link>
+                      </Nav>
+                    </>
+                  ) : (
+                    <>
+                      <Nav className="justify-content-end flex-grow-1 pe-3">
+                        <Nav.Link to="/login" as={NavLink}>
+                          Log in
+                        </Nav.Link>
+                        <Nav.Link to="/sign-up" as={NavLink}>
+                         Sign up
+                        </Nav.Link>
+                      </Nav>
+                    </>
+                  )}
                 </div>
               </Offcanvas.Body>
             </Navbar.Offcanvas>
-
-    
-
-           
           </Container>
         </Navbar>
       ))}

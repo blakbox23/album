@@ -21,7 +21,6 @@ function AlbumDetails() {
 
   return (
     <>
-      <AppNav />
 
       {album && (
         <div className="p-4 mb-1 text-center">

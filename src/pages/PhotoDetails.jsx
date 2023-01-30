@@ -30,7 +30,6 @@ function PhotoDetails() {
 
   return (
     <>
-      <AppNav />
       {photo && (
         <div className="w-75 border mx-auto mt-5 mb-5">
           <div className="m-3 d-flex justify-content-between edit-hover text-muted">
