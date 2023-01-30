@@ -1,9 +1,11 @@
 import { googleProvider } from "../authConfig/authMethods";
 import {auth} from "../authConfig/firebase"
 import { signInWithPopup, GoogleAuthProvider } from "firebase/auth";
+import { useNavigate } from "react-router-dom";
 
 
 function GoogleSignin() {
+  const navigate =useNavigate()
 
   const handleOnClick =  (provider) => {
 
@@ -14,6 +16,7 @@ function GoogleSignin() {
       const token = credential.accessToken;
       // The signed-in user info.
       const user = result.user;
+      navigate('/home')
       console.log('user')
       console.log(user.displayName)
 

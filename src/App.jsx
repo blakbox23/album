@@ -1,48 +1,44 @@
-import { Route, Routes } from 'react-router-dom'
+import { useEffect } from 'react'
+import { Navigate, Route, Routes, useNavigate } from 'react-router-dom'
 import './App.css'
-import Home from './pages/Home'
 import Login from './pages/Login'
 import Signup from './pages/Signup'
-import UserDetails from './pages/UserDetails'
-import AlbumDetails from './pages/AlbumDetails'
-import PhotoDetails from './pages/PhotoDetails'
 import AppNav from './components/AppNav'
 import LandingPage from './pages/LandingPage'
+import {routes} from '../router/routes'
+import { onAuthStateChanged } from "firebase/auth";
+import { auth } from './authConfig/firebase'
 
 function App() {
 
-  const routes = [
-    {
-      path: '/home',
-      name: 'Home',
-      component: <Home />,
-    },
-    {
-      path: '/',
-      name: 'LandingPage',
-      component: <LandingPage />,
-    },
-    {
-      path: '/users/:id',
-      name: 'UserDetails',
-      component: <UserDetails />,
-    },
-    {
-      path: '/albums/:id',
-      name: 'AlbumDetails',
-      component: <AlbumDetails />,
-    },
-    {
-      path: '/photos/:id',
-      name: 'PhotoDetails',
-      component: <PhotoDetails />,
-    },
-    
-  ]
+const navigate = useNavigate()
 
+  useEffect(()=>{
+    onAuthStateChanged(auth, (user) => {
+        if (user) {
+          // User is signed in, see docs for a list of available properties
+          // https://firebase.google.com/docs/reference/js/firebase.User
+          const uid = user.uid;
+          sessionStorage.setItem('albumUser', uid);
+
+
+          // ...
+          console.log("uid", uid)
+        } else {
+
+          // User is signed out
+          // ...
+          sessionStorage.removeItem('albumUser');
+          console.log("user is logged out")
+        }
+      });
+     
+}, [])
+console.log("sessionStorage.getItem('albumUser')")
+console.log(sessionStorage.getItem('albumUser'))
   return (
     <div>
-      {true ? (
+      {sessionStorage.getItem('albumUser') != null ? (
         <>
           <AppNav />
           <Routes>

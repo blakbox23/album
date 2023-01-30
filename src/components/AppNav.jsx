@@ -2,10 +2,28 @@ import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import Offcanvas from "react-bootstrap/Offcanvas";
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
+import { auth } from "../authConfig/firebase";
+import {  signOut } from "firebase/auth";
 import "../App.css";
 
 function AppNav() {
+
+  const user = sessionStorage.getItem('albumUser');
+
+  const navigate = useNavigate()
+  const handleLogout = () => {               
+    signOut(auth).then(() => {
+    // Sign-out successful.
+    sessionStorage.removeItem('albumUser');
+        navigate("/");
+        console.log("Signed out successfully")
+    }).catch((error) => {
+    // An error happened.
+    console.log(error)
+    });
+}
+
   return (
     <>
       {["sm"].map((expand) => (
@@ -35,15 +53,15 @@ function AppNav() {
               </Offcanvas.Header>
               <Offcanvas.Body>
                 <div style={{ marginLeft: "auto" }}>
-                  {true ? (
+                  {user ? (
                     <>
                       <Nav className="justify-content-end flex-grow-1 pe-3">
                         <Nav.Link to="/home" as={NavLink}>
                           Home
                         </Nav.Link>
-                        <Nav.Link to="/about" as={NavLink}>
+                        <button onClick={handleLogout}>
                           Log out
-                        </Nav.Link>
+                        </button>
                       </Nav>
                     </>
                   ) : (
