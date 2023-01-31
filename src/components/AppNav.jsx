@@ -24,21 +24,23 @@ function AppNav() {
     });
 }
 
+
+const navStyle = (user ? 'mb-3 text-dark bg-white' : 'mb-3 text-white bg-transparent')
+
   return (
     <>
       {["sm"].map((expand) => (
         <Navbar
           key={expand}
-          bg="light"
           expand={expand}
-          className="bg-white mb-3"
+          className= {navStyle}
         >
           <Container className="d-flex justify-content-between">
             <div className="fw-bold fs-5">JIL Album</div>
 
             <Navbar.Toggle
               aria-controls={`offcanvasNavbar-expand-${expand}`}
-              className="togle"
+              className="togle burger-menu"
             />
 
             <Navbar.Offcanvas
@@ -52,7 +54,7 @@ function AppNav() {
                 </Offcanvas.Title>
               </Offcanvas.Header>
               <Offcanvas.Body>
-                <div style={{ marginLeft: "auto" }}>
+                <div style={{ marginLeft: "auto"}}>
                   {user ? (
                     <>
                       <Nav className="justify-content-end flex-grow-1 pe-3">
@@ -66,11 +68,11 @@ function AppNav() {
                     </>
                   ) : (
                     <>
-                      <Nav className="justify-content-end flex-grow-1 pe-3">
-                        <Nav.Link to="/login" as={NavLink}>
+                      <Nav className="justify-content-end flex-grow-1 pe-3 ">
+                        <Nav.Link to="/login" as={NavLink} className="pri-cta mobile-links">
                           Log in
                         </Nav.Link>
-                        <Nav.Link to="/sign-up" as={NavLink}>
+                        <Nav.Link to="/sign-up" as={NavLink} className="pri-cta mobile-links">
                          Sign up
                         </Nav.Link>
                       </Nav>
