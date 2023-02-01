@@ -19,6 +19,7 @@ class AppApi {
     const response = await axios.get(
       `https://jsonplaceholder.typicode.com/users?id=${payload}`
     );
+    console.log(response.data[0])
     return response.data[0];
   }
 
@@ -40,6 +41,7 @@ class AppApi {
       album: albumResponse.data[0],
       photos: photosResponse.data,
     };
+
     return response;
   }
 
@@ -47,12 +49,13 @@ class AppApi {
     const response = await axios.get(
       `https://jsonplaceholder.typicode.com/photos/${payload}`
     );
+
+
     return response.data;
   }
 
   async editPhoto(payload) {
-    console.log("payload");
-    console.log(payload.title);
+   
 
     const response = await axios.patch(
       `https://jsonplaceholder.typicode.com/photos/${payload.id}`,
