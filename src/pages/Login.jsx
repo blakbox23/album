@@ -4,34 +4,44 @@ import { auth } from "../authConfig/firebase";
 import { NavLink, useNavigate } from "react-router-dom";
 import { Button } from "react-bootstrap";
 import GoogleSignin from "../components/GoogleSignin";
+import { ToastContainer, toast } from "react-toastify";
+import { errorToast } from "../components/Toast";
 
 const Login = () => {
   const navigate = useNavigate();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
+
+
   const onLogin = (e) => {
     e.preventDefault();
+
     signInWithEmailAndPassword(auth, email, password)
       .then((userCredential) => {
+
+        navigate("/home");
         // Signed in
         const user = userCredential.user;
         sessionStorage.setItem("albumUser", user.uid);
 
-        navigate("/home");
-
         console.log("user");
         console.log(user.uid);
+
       })
       .catch((error) => {
         const errorCode = error.code;
         const errorMessage = error.message;
+
+        errorToast(errorMessage);
+
         console.log(errorCode, errorMessage);
       });
   };
 
   return (
     <>
+      <ToastContainer />
       <div className="auth-page">
         <div className="w-50 border h-100 d-none d-sm-flex login-banner"></div>
         <div className="d-flex p-4 border flex-column justify-content-center align-items-center mobile">

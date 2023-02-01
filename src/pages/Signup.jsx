@@ -4,6 +4,8 @@ import { createUserWithEmailAndPassword } from "firebase/auth";
 import { auth } from "../authConfig/firebase";
 import GoogleSignin from "../components/GoogleSignin";
 import { Button } from "react-bootstrap";
+import { ToastContainer } from "react-toastify";
+import { errorToast } from "../components/Toast";
 
 const Signup = () => {
   const navigate = useNavigate();
@@ -28,13 +30,16 @@ const Signup = () => {
       .catch((error) => {
         const errorCode = error.code;
         const errorMessage = error.message;
+        errorToast(errorMessage);
+
         console.log(errorCode, errorMessage);
-        // ..
+
       });
   };
 
   return (
     <div className="auth-page">
+      <ToastContainer />
       <div className="d-flex p-4 border flex-column justify-content-center align-items-center mobile">
         <h1 className="fs-4 fw-bold mb-3">Join our community</h1>
         <form className="d-flex flex-column w-75" aria-label="signup" >

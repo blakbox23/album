@@ -6,6 +6,7 @@ import { Button, Modal } from "react-bootstrap";
 import AppNav from "../components/AppNav";
 import { editPhoto } from "../store/Actions/PhotosActions";
 import { BiEdit } from "react-icons/bi";
+import { ToastContainer } from "react-toastify";
 
 function PhotoDetails() {
   const dispatch = useDispatch();
@@ -30,6 +31,7 @@ function PhotoDetails() {
 
   return (
     <>
+    <ToastContainer />
       {photo && (
         <div className="w-75 border mx-auto mt-5 mb-5">
           <div className="m-3 d-flex justify-content-between edit-hover text-muted">

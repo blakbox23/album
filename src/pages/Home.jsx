@@ -6,6 +6,7 @@ import { fetchAlbums } from "../store/Actions/AlbumsActions";
 import { Row } from "react-bootstrap";
 import AppNav from "../components/AppNav";
 import UserItem from "../components/UserItem";
+import LoadingSpinner from "../components/Spinner";
 import "../App.css";
 
 function Home() {
@@ -19,14 +20,18 @@ function Home() {
     dispatch(fetchAlbums());
   }, [dispatch]);
 
-  const { users } = useSelector((state) => state.users);
-  const { albums } = useSelector((state) => state.albums);
+
+  const { users, pending } = useSelector((state) => state.users);
+  // const { albums } = useSelector((state) => state.albums);
+
+
 
   return (
     <>
-      <p>home</p>
+
       <Row xs={1} sm={2} md={3} lg={4} className="g-3 ps-5 pe-5">
         {users &&
+        
           users.map((user) => (
             <NavLink to={`/users/${user.id}`} className="text-decoration-none">
               <div key={user.id} className="border">
@@ -41,6 +46,7 @@ function Home() {
             </NavLink>
           ))}
       </Row>
+
       <hr />
     </>
   );
