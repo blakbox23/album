@@ -28,11 +28,15 @@ function UserDetails() {
       {user && (
         <div className="d-flex justify-content-around py-4  mb-3 flex-wrap">
           <div className="d-flex flex-column justify-content-between">
-            <p >
-              <span className="fw-bold" >Name</span> <span data-testid="name">{user.name}</span>
+            <p>
+              <span className="fw-bold" data-testid="name">
+                Name
+              </span>{" "}
+              {user.name}
             </p>
             <p>
-              <span className="fw-bold">Email</span> {user.email}
+              <span className="fw-bold">Username </span>
+              {user.username}
             </p>
             <p>
               <span className="fw-bold">Phone</span> {user.phone}
@@ -40,14 +44,12 @@ function UserDetails() {
           </div>
           <div>
             <p>
-              <span className="fw-bold">City </span>
-              {user.address}
+              <span className="fw-bold">Email</span> {user.email}
             </p>
             <p>
-              <span className="fw-bold">Company </span> {user.comany}
-            </p>
-            <p>
-              <span className="fw-bold" data-testid="website">Website </span>
+              <span className="fw-bold" data-testid="website">
+                Website{" "}
+              </span>
               {user.website}
             </p>
           </div>

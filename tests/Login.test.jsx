@@ -3,7 +3,7 @@ import { render, screen } from "@testing-library/react";
 import Login from "../src/pages/Login";
 import { BrowserRouter } from "react-router-dom";
 
-describe("The Landing Page", () => {
+describe("The Log in Page", () => {
   test("Should render a log in form", () => {
     render(
       <BrowserRouter>

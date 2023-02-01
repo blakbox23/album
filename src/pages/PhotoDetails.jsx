@@ -35,7 +35,8 @@ function PhotoDetails() {
           <div className="m-3 d-flex justify-content-between edit-hover text-muted">
             <h1 className="text-capitalize fs-5">{photo.title}</h1>
             <p className="edit-button" onClick={handleShow}>
-              <BiEdit style={{ fontSize: "2rem" }} />
+              <BiEdit style={{ fontSize: "2rem" }} data-testid="editIcon" />
+              {/* edit */}
             </p>
           </div>
           <div className="d-flex justify-content-center">
@@ -48,7 +49,7 @@ function PhotoDetails() {
             </Modal.Header>
             <Modal.Body>
 
-              <form onSubmit={handleSubmit}>
+              <form onSubmit={handleSubmit} aria-label="edit">
                 <input
                   className="p-2 ps-3 w-100"
                   type="text"

@@ -35,7 +35,6 @@ function GoogleSignin() {
 
   return (
     <div className="GoogleSignin">
-
       <button className ="google-btn" onClick={() => handleOnClick(googleProvider)}><FcGoogle style={{fontSize:"1.5rem"}}/> Sign up with Google</button>
     </div>
   );
