@@ -28,6 +28,7 @@ function AlbumDetails() {
 
   return (
     <>
+    <div className="app-bg">
       {isLoaded == false ? (
         <LoadingSpinner />
       ) : (
@@ -56,6 +57,7 @@ function AlbumDetails() {
           </Row>
         </div>
       )}
+      </div>
     </>
   );
 }

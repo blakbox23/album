@@ -11,11 +11,11 @@ function UserItem({ id, name, phone, website, email }) {
   const { albums } = useSelector((state) => state.albums);
   const userAlbums = albums.filter((album) => album.userId === id);
 
-  const IconsStyle = { color: "grey"}
+  const IconsStyle = { color: "rgb(25, 116, 134)"};
 
   return (
     <>
-      <div className="h-100">
+      <div className="h-100 bg-white px-2 py-3 rounded">
        
           <div >
           

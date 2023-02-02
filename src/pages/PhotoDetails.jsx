@@ -37,9 +37,10 @@ function PhotoDetails() {
 
   return (
     <>
+    <div className="app-bg py-5">
       <ToastContainer />
       {isLoaded==false? (<LoadingSpinner />):(photo && (
-        <div className="w-75 border mx-auto mt-5 mb-5">
+        <div className="w-75 mx-auto">
           <div className="m-3 d-flex justify-content-between edit-hover text-muted">
             <h1 className="text-capitalize fs-5">{photo.title}</h1>
             <p className="edit-button" onClick={handleShow}>
@@ -71,6 +72,7 @@ function PhotoDetails() {
           </Modal>
         </div>
       ))}
+      </div>
     </>
   );
 }

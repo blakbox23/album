@@ -32,57 +32,64 @@ function UserDetails() {
 
   return (
     <>
-      {isLoaded == false ? (
-        <LoadingSpinner />
-      ) : (
-        user && (
-          <div>
-            <div className="d-flex justify-content-around py-4  mb-3 flex-wrap">
-              <div className="d-flex flex-column justify-content-between">
-                <p>
-                  <span className="fw-bold" data-testid="name">
-                    Name
-                  </span>{" "}
-                  {user.name}
-                </p>
-                <p>
-                  <span className="fw-bold">Username </span>
-                  {user.username}
-                </p>
-                <p>
-                  <span className="fw-bold">Phone</span> {user.phone}
-                </p>
+      <div className="app-bg">
+        {isLoaded == false ? (
+          <LoadingSpinner />
+        ) : (
+          user && (
+            <div>
+              <div className="d-flex justify-content-around py-5 flex-wrap">
+                <div className="d-flex flex-column justify-content-between">
+                  <p>
+                    <span className="fw-bold" data-testid="name">
+                      NAME
+                    </span>{" "}
+                    {user.name}
+                  </p>
+                  <p>
+                    <span className="fw-bold">USERNAME </span>
+                    {user.username}
+                  </p>
+                  <p>
+                    <span className="fw-bold">PHONE </span>{" "}
+                    {user.phone}
+                  </p>
+                </div>
+                <div>
+                  <p>
+                    <span className="fw-bold">EMAIL </span>{" "}
+                    {user.email}
+                  </p>
+                  <p>
+                    <span className="fw-bold" data-testid="website">
+                      WEBSITE{" "}
+                    </span>
+                    {user.website}
+                  </p>
+                </div>
               </div>
-              <div>
-                <p>
-                  <span className="fw-bold">Email</span> {user.email}
-                </p>
-                <p>
-                  <span className="fw-bold" data-testid="website">
-                    Website{" "}
-                  </span>
-                  {user.website}
-                </p>
+
+              <div className=" pt-5">
+                <p className="text-center fs-4 fw-bold">ALBUMS</p>
+
+                <div>
+                  {userAlbums &&
+                    userAlbums.map((userAlbum) => (
+                      <div key={userAlbum.id} className="album-list">
+                        <NavLink
+                          to={`/albums/${userAlbum.id}`}
+                          className="text-decoration-none text-capitalize"
+                        >
+                          <AlbumItem title={userAlbum.title} />
+                        </NavLink>
+                      </div>
+                    ))}
+                </div>
               </div>
             </div>
-            <p className="text-center fs-4 fw-bold">ALBUMS</p>
-
-            {userAlbums &&
-              userAlbums.map((userAlbum) => (
-                <div key={userAlbum.id} className="album-list">
-                  <NavLink
-                    to={`/albums/${userAlbum.id}`}
-                    className="text-decoration-none text-capitalize"
-                  >
-                    <AlbumItem title={userAlbum.title} />
-                  </NavLink>
-                </div>
-              ))}
-          </div>
-        )
-      )}
-
-      <hr className="my-2" />
+          )
+        )}
+      </div>
     </>
   );
 }

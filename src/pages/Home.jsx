@@ -30,31 +30,31 @@ function Home() {
 
   return (
     <>
-      {isLoaded == false ? (
-        <LoadingSpinner />
-      ) : (
-        <Row xs={1} sm={2} md={3} lg={4} className="g-3 ps-5 pe-5">
-          {users &&
-            users.map((user) => (
-              <NavLink
-                to={`/users/${user.id}`}
-                className="text-decoration-none"
-              >
-                <div key={user.id} className="border">
-                  <UserItem
-                    name={user.username}
-                    id={user.id}
-                    email={user.email}
-                    website={user.website}
-                    phone={user.phone}
-                  />
-                </div>
-              </NavLink>
-            ))}
-        </Row>
-      )}
-
-      <hr />
+      <div className="app-bg">
+        {isLoaded == false ? (
+          <LoadingSpinner />
+        ) : (
+          <Row xs={1} sm={2} md={3} className="g-3 px-4 w-75 m-auto py-4">
+            {users &&
+              users.map((user) => (
+                <NavLink
+                  to={`/users/${user.id}`}
+                  className="text-decoration-none"
+                >
+                  <div key={user.id}>
+                    <UserItem
+                      name={user.username}
+                      id={user.id}
+                      email={user.email}
+                      website={user.website}
+                      phone={user.phone}
+                    />
+                  </div>
+                </NavLink>
+              ))}
+          </Row>
+        )}
+      </div>
     </>
   );
 }

@@ -3,14 +3,31 @@
   padding: 0;
 }
 
+.app-bg {
+  background-color: rgb(255, 206, 214);
+  background-image: linear-gradient(
+    to bottom right,
+    rgb(255, 206, 214),
+    rgb(87, 214, 239)
+  );
+}
+
 .user-details {
   font-size: 0.95rem;
+}
+
+.user-profile {
+  background-color: #cfebf0;
 }
 
 .album-list {
   width: 80%;
   margin: auto;
   max-width: 700px;
+}
+
+.album-item {
+  background-color: #fff;
 }
 
 .edit-hover:hover .edit-button {
