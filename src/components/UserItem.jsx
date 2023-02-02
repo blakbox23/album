@@ -1,11 +1,10 @@
-/* eslint-disable react/prop-types */
-
 import { useSelector } from 'react-redux';
 import { CgProfile } from 'react-icons/cg';
 import { FaMousePointer } from 'react-icons/fa';
 import { HiOutlineMailOpen } from 'react-icons/hi';
 import { BsFillTelephoneFill } from 'react-icons/bs';
 import { IoAlbumsOutline } from 'react-icons/io5';
+import PropTypes from 'prop-types';
 
 function UserItem({
   id, name, phone, website, email,
@@ -62,9 +61,12 @@ function UserItem({
   );
 }
 
-// VideoListItem.propTypes = {
-//   video: PropTypes.object.isRequired,
-//   onVideoSelect: PropTypes.func.isRequired,
-// };
+UserItem.propTypes = {
+  id: PropTypes.number.isRequired,
+  name: PropTypes.string.isRequired,
+  website: PropTypes.number.isRequired,
+  phone: PropTypes.string.isRequired,
+  email: PropTypes.string.isRequired,
+};
 
 export default UserItem;

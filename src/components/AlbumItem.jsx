@@ -1,6 +1,5 @@
-/* eslint-disable react/prop-types */
-
 import { TbPhoto } from 'react-icons/tb';
+import PropTypes from 'prop-types';
 
 function AlbumItem({ title }) {
   return (
@@ -13,5 +12,10 @@ function AlbumItem({ title }) {
     </>
   );
 }
+
+AlbumItem.propTypes = {
+  title: PropTypes.string.isRequired,
+
+};
 
 export default AlbumItem;
