@@ -2,8 +2,6 @@
 // import {auth} from "../authConfig/firebase"
 // import { signInWithPopup, GoogleAuthProvider } from "firebase/auth";
 
-
-
 //   const thirdPartyAuth =  (provider) => {
 
 //     signInWithPopup(auth, provider)

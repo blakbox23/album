@@ -3,14 +3,14 @@ import {
   FETCH_ALBUMS_SUCCESS,
   FETCH_ALBUM,
   FETCH_ALBUM_SUCCESS,
-} from "../Actions/AlbumsActions";
+} from '../Actions/AlbumsActions';
 
 const initialState = {
   pending: false,
   error: null,
   albums: [],
   album: undefined,
-  photos: []
+  photos: [],
 };
 
 const AlbumsReducer = (state = initialState, action) => {
@@ -29,7 +29,7 @@ const AlbumsReducer = (state = initialState, action) => {
         error: null,
       };
 
-      case FETCH_ALBUM:
+    case FETCH_ALBUM:
       return {
         ...state,
         pending: true,

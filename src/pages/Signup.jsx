@@ -1,17 +1,17 @@
-import React, { useState } from "react";
-import { NavLink, useNavigate } from "react-router-dom";
-import { createUserWithEmailAndPassword } from "firebase/auth";
-import { auth } from "../authConfig/firebase";
-import GoogleSignin from "../components/GoogleSignin";
-import { Button } from "react-bootstrap";
-import { ToastContainer } from "react-toastify";
-import { errorToast } from "../components/Toast";
+import React, { useState } from 'react';
+import { NavLink, useNavigate } from 'react-router-dom';
+import { createUserWithEmailAndPassword } from 'firebase/auth';
+import { Button } from 'react-bootstrap';
+import { ToastContainer } from 'react-toastify';
+import { auth } from '../authConfig/firebase';
+import GoogleSignin from '../components/GoogleSignin';
+import { errorToast } from '../components/Toast';
 
 const Signup = () => {
   const navigate = useNavigate();
 
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
 
   const onSubmit = async (e) => {
     e.preventDefault();
@@ -19,21 +19,14 @@ const Signup = () => {
     await createUserWithEmailAndPassword(auth, email, password)
       .then((userCredential) => {
         // Signed in
-        const user = userCredential.user;
+        const { user } = userCredential;
 
-        sessionStorage.setItem("albumUser", user.uid);
-        navigate("/home");
-
-        console.log("signup");
-        console.log(user);
+        sessionStorage.setItem('albumUser', user.uid);
+        navigate('/home');
       })
       .catch((error) => {
-        const errorCode = error.code;
         const errorMessage = error.message;
         errorToast(errorMessage);
-
-        console.log(errorCode, errorMessage);
-
       });
   };
 
@@ -42,8 +35,8 @@ const Signup = () => {
       <ToastContainer />
       <div className="d-flex p-4 border flex-column justify-content-center align-items-center mobile">
         <h1 className="fs-4 fw-bold mb-3">Join our community</h1>
-        <form className="d-flex flex-column w-75" aria-label="signup" >
-          <label className="mb-2">
+        <form className="d-flex flex-column w-75" aria-label="signup">
+          <label className="mb-2" htmlFor="Email">
             <p className="mb-1">Email</p>
             <input
               className="p-2 ps-3 w-100 inpt"
@@ -56,7 +49,7 @@ const Signup = () => {
             />
           </label>
 
-          <label className="mb-2">
+          <label className="mb-2" htmlFor="Password">
             <p className="mb-1">Password</p>
             <input
               className="p-2 ps-3 w-100 inpt"
@@ -73,7 +66,7 @@ const Signup = () => {
             Sign up
           </Button>
 
-          <p style={{ textAlign: "center" }}>or</p>
+          <p style={{ textAlign: 'center' }}>or</p>
         </form>
 
         <div className="google-btn-container">
@@ -81,12 +74,13 @@ const Signup = () => {
         </div>
 
         <p>
-          Already have an account?{" "}
+          Already have an account?
+          {' '}
           <NavLink
             style={{
-              textDecoration: "none",
-              fontWeight: "bold",
-              color: "#5c636a",
+              textDecoration: 'none',
+              fontWeight: 'bold',
+              color: '#5c636a',
             }}
             to="/login"
           >
@@ -95,9 +89,11 @@ const Signup = () => {
         </p>
       </div>
       <div className="w-50 h-100 d-none d-sm-flex login-banner">
-          <div className="d-flex justify-content-center align-items-center m-auto text-white fs-2 login-image">
-          </div>
-        </div>    </div>
+        <div className="d-flex justify-content-center align-items-center m-auto text-white fs-2 login-image" />
+      </div>
+      {' '}
+
+    </div>
   );
 };
 

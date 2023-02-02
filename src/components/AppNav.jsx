@@ -1,39 +1,38 @@
-import Container from "react-bootstrap/Container";
-import Nav from "react-bootstrap/Nav";
-import Navbar from "react-bootstrap/Navbar";
-import Offcanvas from "react-bootstrap/Offcanvas";
-import { NavLink, useNavigate } from "react-router-dom";
-import { auth } from "../authConfig/firebase";
-import {  signOut } from "firebase/auth";
-import "../App.css";
+import Container from 'react-bootstrap/Container';
+import Nav from 'react-bootstrap/Nav';
+import Navbar from 'react-bootstrap/Navbar';
+import Offcanvas from 'react-bootstrap/Offcanvas';
+import { NavLink, useNavigate } from 'react-router-dom';
+import { signOut } from 'firebase/auth';
+import { auth } from '../authConfig/firebase';
+import { errorToast } from './Toast';
+import '../App.css';
 
 function AppNav() {
-
   const user = sessionStorage.getItem('albumUser');
 
-  const navigate = useNavigate()
-  const handleLogout = () => {               
+  const navigate = useNavigate();
+  const handleLogout = () => {
     signOut(auth).then(() => {
     // Sign-out successful.
-    sessionStorage.removeItem('albumUser');
-        navigate("/");
-        console.log("Signed out successfully")
+      sessionStorage.removeItem('albumUser');
+      navigate('/');
+      console.log('Signed out successfully');
     }).catch((error) => {
     // An error happened.
-    console.log(error)
+      errorToast(error);
     });
-}
+  };
 
-
-const navStyle = (user ? 'mb-3 text-dark bg-white' : 'mb-3 text-white bg-transparent')
+  const navStyle = (user ? 'mb-3 text-dark bg-white' : 'mb-3 text-white bg-transparent');
 
   return (
     <>
-      {["sm"].map((expand) => (
+      {['sm'].map((expand) => (
         <Navbar
           key={expand}
           expand={expand}
-          className= {navStyle}
+          className={navStyle}
         >
           <Container className="d-flex justify-content-between">
             <div className="fw-bold fs-5">JIL Album</div>
@@ -54,14 +53,14 @@ const navStyle = (user ? 'mb-3 text-dark bg-white' : 'mb-3 text-white bg-transpa
                 </Offcanvas.Title>
               </Offcanvas.Header>
               <Offcanvas.Body>
-                <div style={{ marginLeft: "auto"}}>
+                <div style={{ marginLeft: 'auto' }}>
                   {user ? (
                     <>
                       <Nav className="justify-content-end flex-grow-1 pe-3">
                         <Nav.Link to="/home" as={NavLink}>
                           Home
                         </Nav.Link>
-                        <button className ="p-2 border-0 bg-info text-white rounded" onClick={handleLogout}>
+                        <button type="button" className="p-2 border-0 bg-info text-white rounded" onClick={handleLogout}>
                           Log out
                         </button>
                       </Nav>
@@ -73,7 +72,7 @@ const navStyle = (user ? 'mb-3 text-dark bg-white' : 'mb-3 text-white bg-transpa
                           Log in
                         </Nav.Link>
                         <Nav.Link to="/sign-up" as={NavLink} className="pri-cta mobile-links">
-                         Sign up
+                          Sign up
                         </Nav.Link>
                       </Nav>
                     </>

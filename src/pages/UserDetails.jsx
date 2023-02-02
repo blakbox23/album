@@ -1,13 +1,10 @@
-import React, { useEffect, useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { NavLink } from "react-router-dom";
-import { fetchUser } from "../store/Actions/UsersActions";
-import { fetchUserAlbums } from "../store/Actions/UsersActions";
-import LoadingSpinner from "../components/Spinner";
+import React, { useEffect, useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { NavLink, useParams } from 'react-router-dom';
+import { fetchUser, fetchUserAlbums } from '../store/Actions/UsersActions';
+import LoadingSpinner from '../components/Spinner';
 
-import { useParams } from "react-router-dom";
-import AlbumItem from "../components/AlbumItem";
-import AppNav from "../components/AppNav";
+import AlbumItem from '../components/AlbumItem';
 
 function UserDetails() {
   const dispatch = useDispatch();
@@ -18,22 +15,22 @@ function UserDetails() {
 
   useEffect(() => {
     dispatch(fetchUser(id));
-  }, [dispatch]);
+  }, [id, dispatch]);
 
   useEffect(() => {
     dispatch(fetchUserAlbums(id));
-  }, [dispatch]);
+  }, [id, dispatch]);
 
   const [isLoaded, setIsLoaded] = useState(pending);
 
-  if (pending == true) {
+  if (pending === true) {
     setTimeout(() => setIsLoaded(true), 700);
   }
 
   return (
     <>
       <div className="app-bg">
-        {isLoaded == false ? (
+        {isLoaded === false ? (
           <LoadingSpinner />
         ) : (
           user && (
@@ -43,7 +40,8 @@ function UserDetails() {
                   <p>
                     <span className="fw-bold" data-testid="name">
                       NAME
-                    </span>{" "}
+                    </span>
+                    {' '}
                     {user.name}
                   </p>
                   <p>
@@ -51,18 +49,21 @@ function UserDetails() {
                     {user.username}
                   </p>
                   <p>
-                    <span className="fw-bold">PHONE </span>{" "}
+                    <span className="fw-bold">PHONE </span>
+                    {' '}
                     {user.phone}
                   </p>
                 </div>
                 <div>
                   <p>
-                    <span className="fw-bold">EMAIL </span>{" "}
+                    <span className="fw-bold">EMAIL </span>
+                    {' '}
                     {user.email}
                   </p>
                   <p>
                     <span className="fw-bold" data-testid="website">
-                      WEBSITE{" "}
+                      WEBSITE
+                      {' '}
                     </span>
                     {user.website}
                   </p>
@@ -73,8 +74,8 @@ function UserDetails() {
                 <p className="text-center fs-4 fw-bold">ALBUMS</p>
 
                 <div>
-                  {userAlbums &&
-                    userAlbums.map((userAlbum) => (
+                  {userAlbums
+                    && userAlbums.map((userAlbum) => (
                       <div key={userAlbum.id} className="album-list">
                         <NavLink
                           to={`/albums/${userAlbum.id}`}

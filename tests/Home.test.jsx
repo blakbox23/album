@@ -1,20 +1,21 @@
-import { describe, test } from "vitest";
-import { render, screen, waitFor, act } from "@testing-library/react";
-import Home from "../src/pages/Home";
-import { BrowserRouter } from "react-router-dom";
-import { Provider } from "react-redux";
-import store from "../src/store/Store";
-import { api } from "../src/store/Api";
+import { describe, test, vi } from 'vitest';
+import {
+  render, screen, waitFor,
+} from '@testing-library/react';
+import { BrowserRouter } from 'react-router-dom';
+import { Provider } from 'react-redux';
+import Home from '../src/pages/Home';
+import store from '../src/store/Store';
+import { api } from '../src/store/Api';
 
-
-describe("The Landing Page", () => {
-  test("Should render a log out button", () => {
+describe('The Landing Page', () => {
+  test('Should render a log out button', () => {
     render(
       <BrowserRouter>
         <Provider store={store}>
           <Home />
         </Provider>
-      </BrowserRouter>
+      </BrowserRouter>,
     );
 
     const homeText = screen.getByText(/home/i);
@@ -22,56 +23,50 @@ describe("The Landing Page", () => {
     expect(homeText).toBeInTheDocument();
   });
 
-  test("getUsers request is being called and UI updated appropriately", async () => {
+  test('getUsers request is being called and UI updated appropriately', async () => {
     const mockFetchData = vi
-      .spyOn(api, "getUsers")
-      .mockImplementation(async () => {
-        return [
-          {
-            username: "Breta",
-          },
-        ];
-      });
+      .spyOn(api, 'getUsers')
+      .mockImplementation(async () => [
+        {
+          username: 'Breta',
+        },
+      ]);
 
     render(
       <BrowserRouter>
         <Provider store={store}>
           <Home />
         </Provider>
-      </BrowserRouter>
+      </BrowserRouter>,
     );
 
     expect(mockFetchData).toHaveBeenCalled();
     await waitFor(() => {
-      expect(screen.getByText("Breta")).toBeInTheDocument();
+      expect(screen.getByText('Breta')).toBeInTheDocument();
     });
   });
 
-  test("getAlbums request is being called and UI updated appropriately", async () => {
+  test('getAlbums request is being called and UI updated appropriately', async () => {
     const mockFetchAlbums = vi
-      .spyOn(api, "getAlbums")
-      .mockImplementation(async () => {
-        return [
-          {
-            title: "album one",
-          },
-          {
-            title: "album two",
-          },
-        ];
-      });
+      .spyOn(api, 'getAlbums')
+      .mockImplementation(async () => [
+        {
+          title: 'album one',
+        },
+        {
+          title: 'album two',
+        },
+      ]);
     render(
       <BrowserRouter>
         <Provider store={store}>
           <Home />
         </Provider>
-      </BrowserRouter>
+      </BrowserRouter>,
     );
     expect(mockFetchAlbums).toHaveBeenCalled();
     await waitFor(() => {
-        expect(screen.getByText("2 albums")).toBeInTheDocument();
-      });
+      expect(screen.getByText('2 albums')).toBeInTheDocument();
+    });
   });
-
-
 });

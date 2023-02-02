@@ -1,32 +1,28 @@
-import React, { useState } from "react";
-import { signInWithEmailAndPassword } from "firebase/auth";
-import { auth } from "../authConfig/firebase";
-import { NavLink, useNavigate } from "react-router-dom";
-import { Button } from "react-bootstrap";
-import GoogleSignin from "../components/GoogleSignin";
-import { ToastContainer } from "react-toastify";
-import { errorToast } from "../components/Toast";
+import React, { useState } from 'react';
+import { signInWithEmailAndPassword } from 'firebase/auth';
+import { NavLink, useNavigate } from 'react-router-dom';
+import { Button } from 'react-bootstrap';
+import { ToastContainer } from 'react-toastify';
+import GoogleSignin from '../components/GoogleSignin';
+import { auth } from '../authConfig/firebase';
+import { errorToast } from '../components/Toast';
 
 const Login = () => {
   const navigate = useNavigate();
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
 
   const onLogin = (e) => {
     e.preventDefault();
 
     signInWithEmailAndPassword(auth, email, password)
       .then((userCredential) => {
-        navigate("/home");
+        navigate('/home');
         // Signed in
-        const user = userCredential.user;
-        sessionStorage.setItem("albumUser", user.uid);
-
-        console.log("user");
-        console.log(user.uid);
+        const { user } = userCredential;
+        sessionStorage.setItem('albumUser', user.uid);
       })
       .catch((error) => {
-        const errorCode = error.code;
         const errorMessage = error.message;
 
         errorToast(errorMessage);
@@ -46,7 +42,7 @@ const Login = () => {
           <h1 className="fs-4 fw-bold mb-3">Log in</h1>
 
           <form className="d-flex flex-column w-75" aria-label="login">
-            <label className="mb-2">
+            <label className="mb-2" htmlFor="Email">
               <p className="mb-1">Email</p>
               <input
                 className="p-2 ps-3 w-100 inpt"
@@ -59,7 +55,7 @@ const Login = () => {
               />
             </label>
 
-            <label className="mb-2">
+            <label className="mb-2" htmlFor="password">
               <p className="mb-1">Password</p>
               <input
                 className="p-2 ps-3 w-100 inpt"
@@ -75,19 +71,20 @@ const Login = () => {
             <Button onClick={onLogin} className="mt-3 mb-3" variant="secondary">
               Login
             </Button>
-            <p style={{ textAlign: "center" }}>or</p>
+            <p style={{ textAlign: 'center' }}>or</p>
           </form>
           <div className="google-btn-container">
             <GoogleSignin />
           </div>
 
           <p className="mb-1">
-            No account yet?{" "}
+            No account yet?
+            {' '}
             <NavLink
               style={{
-                textDecoration: "none",
-                fontWeight: "bold",
-                color: "#5c636a",
+                textDecoration: 'none',
+                fontWeight: 'bold',
+                color: '#5c636a',
               }}
               to="/sign-up"
             >
