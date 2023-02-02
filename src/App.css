@@ -5,11 +5,12 @@
 
 .app-bg {
   background-color: rgb(255, 206, 214);
-  background-image: linear-gradient(
-    to bottom right,
-    rgb(255, 206, 214),
-    rgb(87, 214, 239)
-  );
+  background-image:
+    linear-gradient(
+      to bottom right,
+      rgb(255, 206, 214),
+      rgb(87, 214, 239)
+    );
 }
 
 .user-details {
@@ -50,12 +51,14 @@
 
 .login-banner {
   background-color: #87e387;
+
   /* background-image: url("../public/images/astronaut_camera-removebg-preview.png"); */
-  background-image: linear-gradient(
-    to bottom,
-    rgb(255, 206, 214),
-    rgb(87, 214, 239)
-  );
+  background-image:
+    linear-gradient(
+      to bottom,
+      rgb(255, 206, 214),
+      rgb(87, 214, 239)
+    );
   background-position: center;
   background-repeat: no-repeat;
 }
@@ -77,6 +80,7 @@
   width: 75%;
   margin-bottom: 2rem;
 }
+
 .google-btn {
   background-color: #fff;
   outline: none;
@@ -96,6 +100,7 @@
   background-position: center;
   background-color: rgb(242, 250, 250);
 }
+
 .overlay {
   width: 100%;
   height: 100vh;
