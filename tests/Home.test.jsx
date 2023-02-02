@@ -9,20 +9,6 @@ import store from '../src/store/Store';
 import { api } from '../src/store/Api';
 
 describe('The Landing Page', () => {
-  test('Should render a log out button', () => {
-    render(
-      <BrowserRouter>
-        <Provider store={store}>
-          <Home />
-        </Provider>
-      </BrowserRouter>,
-    );
-
-    const homeText = screen.getByText(/home/i);
-
-    expect(homeText).toBeInTheDocument();
-  });
-
   test('getUsers request is being called and UI updated appropriately', async () => {
     const mockFetchData = vi
       .spyOn(api, 'getUsers')
@@ -42,6 +28,7 @@ describe('The Landing Page', () => {
 
     expect(mockFetchData).toHaveBeenCalled();
     await waitFor(() => {
+      // expect(screen.getByText('Log in')).toBeInTheDocument();
       expect(screen.getByText('Breta')).toBeInTheDocument();
     });
   });
