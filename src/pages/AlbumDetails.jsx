@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchAlbum } from "../store/Actions/AlbumsActions";
 import { useParams } from "react-router-dom";
@@ -6,6 +6,7 @@ import { NavLink } from "react-router-dom";
 import PhotoItem from "../components/PhotoItem";
 import { Row } from "react-bootstrap";
 import AppNav from "../components/AppNav";
+import LoadingSpinner from "../components/Spinner";
 
 function AlbumDetails() {
   const dispatch = useDispatch();
@@ -17,35 +18,44 @@ function AlbumDetails() {
   }, [dispatch]);
 
   const { album } = useSelector((state) => state.albums);
-  const { photos } = useSelector((state) => state.albums);
+  const { photos, pending } = useSelector((state) => state.albums);
+
+  const [isLoaded, setIsLoaded] = useState(pending);
+
+  if (pending == true) {
+    setTimeout(() => setIsLoaded(true), 1800);
+  }
 
   return (
     <>
-
-      {album && (
-        <div className="p-4 mb-1 text-center">
-          <p className=" mb-0 text-uppercase fw-bold">{album.title}</p>
-           <p className="fw-light"> ({photos.length}) photos</p>
+      {isLoaded == false ? (
+        <LoadingSpinner />
+      ) : (
+        <div style={{ width: "86%" }} className="mx-auto">
+          {album && (
+            <div className="p-4 mb-1 text-center">
+              <p className=" mb-0 text-uppercase fw-bold">{album.title}</p>
+              <p className="fw-light"> ({photos.length}) photos</p>
+            </div>
+          )}
+          <Row xs={1} sm={2} md={2} lg={3} className="g-4">
+            {photos &&
+              photos.map((photo) => (
+                <div key={photo.id} className="mx-auto">
+                  <NavLink
+                    to={`/photos/${photo.id}`}
+                    className="text-decoration-none"
+                  >
+                    <PhotoItem
+                      title={photo.title}
+                      thumbnail={photo.thumbnailUrl}
+                    />
+                  </NavLink>
+                </div>
+              ))}
+          </Row>
         </div>
       )}
-      <div style={{ width: "86%" }} className="mx-auto">
-        <Row xs={1} sm={2} md={2} lg={3} className="g-4">
-          {photos &&
-            photos.map((photo) => (
-              <div key={photo.id} className="mx-auto">
-                <NavLink
-                  to={`/photos/${photo.id}`}
-                  className="text-decoration-none"
-                >
-                  <PhotoItem
-                    title={photo.title}
-                    thumbnail={photo.thumbnailUrl}
-                  />
-                </NavLink>
-              </div>
-            ))}
-        </Row>
-      </div>
     </>
   );
 }

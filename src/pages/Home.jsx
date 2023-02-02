@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { NavLink } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchUsers } from "../store/Actions/UsersActions";
@@ -20,32 +20,39 @@ function Home() {
     dispatch(fetchAlbums());
   }, [dispatch]);
 
-
   const { users, pending } = useSelector((state) => state.users);
-  // const { albums } = useSelector((state) => state.albums);
 
+  const [isLoaded, setIsLoaded] = useState(pending);
 
+  if (pending == true) {
+    setTimeout(() => setIsLoaded(true), 500);
+  }
 
   return (
     <>
-
-      <Row xs={1} sm={2} md={3} lg={4} className="g-3 ps-5 pe-5">
-        {users &&
-        
-          users.map((user) => (
-            <NavLink to={`/users/${user.id}`} className="text-decoration-none">
-              <div key={user.id} className="border">
-                <UserItem
-                  name={user.username}
-                  id={user.id}
-                  email={user.email}
-                  website={user.website}
-                  phone={user.phone}
-                />
-              </div>
-            </NavLink>
-          ))}
-      </Row>
+      {isLoaded == false ? (
+        <LoadingSpinner />
+      ) : (
+        <Row xs={1} sm={2} md={3} lg={4} className="g-3 ps-5 pe-5">
+          {users &&
+            users.map((user) => (
+              <NavLink
+                to={`/users/${user.id}`}
+                className="text-decoration-none"
+              >
+                <div key={user.id} className="border">
+                  <UserItem
+                    name={user.username}
+                    id={user.id}
+                    email={user.email}
+                    website={user.website}
+                    phone={user.phone}
+                  />
+                </div>
+              </NavLink>
+            ))}
+        </Row>
+      )}
 
       <hr />
     </>

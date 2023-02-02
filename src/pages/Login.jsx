@@ -4,7 +4,7 @@ import { auth } from "../authConfig/firebase";
 import { NavLink, useNavigate } from "react-router-dom";
 import { Button } from "react-bootstrap";
 import GoogleSignin from "../components/GoogleSignin";
-import { ToastContainer, toast } from "react-toastify";
+import { ToastContainer } from "react-toastify";
 import { errorToast } from "../components/Toast";
 
 const Login = () => {
@@ -35,7 +35,6 @@ const Login = () => {
 
         errorToast(errorMessage);
 
-        console.log(errorCode, errorMessage);
       });
   };
 
