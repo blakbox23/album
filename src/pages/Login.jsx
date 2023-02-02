@@ -12,14 +12,11 @@ const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
-
-
   const onLogin = (e) => {
     e.preventDefault();
 
     signInWithEmailAndPassword(auth, email, password)
       .then((userCredential) => {
-
         navigate("/home");
         // Signed in
         const user = userCredential.user;
@@ -27,14 +24,12 @@ const Login = () => {
 
         console.log("user");
         console.log(user.uid);
-
       })
       .catch((error) => {
         const errorCode = error.code;
         const errorMessage = error.message;
 
         errorToast(errorMessage);
-
       });
   };
 
@@ -42,7 +37,11 @@ const Login = () => {
     <>
       <ToastContainer />
       <div className="auth-page">
-        <div className="w-50 border h-100 d-none d-sm-flex login-banner"></div>
+        <div className="w-50 h-100 d-none d-sm-flex login-banner">
+          <div className="d-flex justify-content-center align-items-center m-auto text-white fs-2 login-image">
+            {/* <img style ={{width: "100%"}} src="../public/images/loginCam.jpg" alt="" /> */}
+          </div>
+        </div>
         <div className="d-flex p-4 border flex-column justify-content-center align-items-center mobile">
           <h1 className="fs-4 fw-bold mb-3">Log in</h1>
 

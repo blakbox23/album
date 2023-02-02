@@ -94,8 +94,10 @@ const Signup = () => {
           </NavLink>
         </p>
       </div>
-      <div className="w-50 border h-100 d-none d-sm-flex login-banner"></div>
-    </div>
+      <div className="w-50 h-100 d-none d-sm-flex login-banner">
+          <div className="d-flex justify-content-center align-items-center m-auto text-white fs-2 login-image">
+          </div>
+        </div>    </div>
   );
 };
 

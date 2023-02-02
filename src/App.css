@@ -33,10 +33,23 @@
 
 .login-banner {
   background-color: #87e387;
-  background-image: url("../public/images/astronaut_camera-removebg-preview.png");
-  background-size: 25%;
+  /* background-image: url("../public/images/astronaut_camera-removebg-preview.png"); */
+  background-image: linear-gradient(
+    to bottom,
+    rgb(255, 206, 214),
+    rgb(87, 214, 239)
+  );
   background-position: center;
   background-repeat: no-repeat;
+}
+
+.login-image {
+  width: 80%;
+  height: 80%;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-image: url("../public/images/loginCam.jpg");
 }
 
 .mobile {
@@ -54,10 +67,7 @@
   padding: 0.5rem;
   width: 100%;
   font-size: 0.95rem;
-
 }
-
-
 
 .hero {
   width: 100%;
@@ -73,7 +83,7 @@
   width: 100%;
   height: 100vh;
   margin: auto;
-  background-color: rgba(0,0,0,0.7);
+  background-color: rgba(0, 0, 0, 0.7);
   position: absolute;
   top: 0;
   color: rgb(242, 250, 250);
@@ -81,25 +91,22 @@
   align-items: center;
   justify-content: center;
 }
-             
+
 .landing-nav {
   width: 100%;
   position: absolute;
   top: 0;
   z-index: 2;
-
 }
 
-.pri-cta{
+.pri-cta {
   color: #fff !important;
   font-weight: bold;
 }
 
 .hero-text {
-  font-family: 'Poppins', sans-serif;
-
+  font-family: "Poppins", sans-serif;
 }
-
 
 .hero-text button {
   padding: 0.5rem 1rem;
@@ -111,27 +118,22 @@
   cursor: pointer;
 }
 
-.burger-menu{
+.burger-menu {
   color: #fff;
 }
 
 .spinner {
   height: 90vh;
   z-index: 3;
-
 }
 
 @media only screen and (max-width: 586px) {
   .mobile {
-     width: 100% !important;
-   }
- 
-   .mobile-links {
-     color: #000 !important;
-     background-color: white;
- 
-   }
-   
- 
- 
- }
+    width: 100% !important;
+  }
+
+  .mobile-links {
+    color: #000 !important;
+    background-color: white;
+  }
+}

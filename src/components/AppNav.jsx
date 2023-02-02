@@ -61,7 +61,7 @@ const navStyle = (user ? 'mb-3 text-dark bg-white' : 'mb-3 text-white bg-transpa
                         <Nav.Link to="/home" as={NavLink}>
                           Home
                         </Nav.Link>
-                        <button onClick={handleLogout}>
+                        <button className ="p-2 border-0 bg-info text-white rounded" onClick={handleLogout}>
                           Log out
                         </button>
                       </Nav>
