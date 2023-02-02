@@ -50,7 +50,7 @@ const Login = () => {
                 name="email"
                 type="email"
                 required
-                placeholder="Email address" 
+                placeholder="Email address"
                 onChange={(e) => setEmail(e.target.value)}
               />
             </label>

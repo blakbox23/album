@@ -9,8 +9,6 @@ import store from '../src/store/Store';
 import { api } from '../src/store/Api';
 
 describe('The Landing Page', () => {
-
-
   test('getUsers request is being called and UI updated appropriately', async () => {
     const mockFetchData = vi
       .spyOn(api, 'getUsers')

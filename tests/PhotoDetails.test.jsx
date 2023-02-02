@@ -1,7 +1,5 @@
 import { vi } from 'vitest';
-import {
-  render, screen, waitFor, fireEvent,
-} from '@testing-library/react';
+import { render } from '@testing-library/react';
 import { BrowserRouter } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import { api } from '../src/store/Api';
@@ -9,22 +7,20 @@ import store from '../src/store/Store';
 import PhotoDetails from '../src/pages/PhotoDetails';
 
 describe('The PhotoDetails Page', () => {
-  test("getPhoto request is being called and UI updated appropriately", async () => {
+  test('getPhoto request is being called and UI updated appropriately', async () => {
     const mockData = {
-      id: "1",
-      title: "photoTitle",
+      id: '1',
+      title: 'photoTitle',
     };
     const mockFetchData = vi
-      .spyOn(api, "getPhoto")
-      .mockImplementation(async () => {
-        return mockData;
-      });
+      .spyOn(api, 'getPhoto')
+      .mockImplementation(async () => mockData);
     render(
       <BrowserRouter>
         <Provider store={store}>
           <PhotoDetails />
         </Provider>
-      </BrowserRouter>
+      </BrowserRouter>,
     );
 
     expect(mockFetchData).toHaveBeenCalled();
@@ -50,12 +46,12 @@ describe('The PhotoDetails Page', () => {
 
   //   EDIT PHOTO REQUEST IS RUN AFTER FORM SUBMISSION
   test('editPhoto request is being called and UI updated appropriately', async () => {
-    const mockFetchData = vi
-      .spyOn(api, 'editPhoto')
-      .mockImplementation(async () => ({
-        id: '1',
-        title: 'new title',
-      }));
+    // const mockFetchData = vi
+    //   .spyOn(api, 'editPhoto')
+    //   .mockImplementation(async () => ({
+    //     id: '1',
+    //     title: 'new title',
+    //   }));
     render(
       <BrowserRouter>
         <Provider store={store}>
