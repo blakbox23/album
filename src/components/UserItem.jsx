@@ -64,7 +64,7 @@ function UserItem({
 UserItem.propTypes = {
   id: PropTypes.number.isRequired,
   name: PropTypes.string.isRequired,
-  website: PropTypes.number.isRequired,
+  website: PropTypes.string.isRequired,
   phone: PropTypes.string.isRequired,
   email: PropTypes.string.isRequired,
 };

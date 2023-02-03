@@ -42,7 +42,8 @@ class AppApi {
       album: albumResponse.data[0],
       photos: photosResponse.data,
     };
-
+    console.log(response)
+console.log(response)
     return response;
   }
 
@@ -50,6 +51,9 @@ class AppApi {
     const response = await axios.get(
       `https://jsonplaceholder.typicode.com/photos/${payload}`,
     );
+    console.log('get photo response.data')
+    console.log(response.data)
+
 
     return response.data;
   }
