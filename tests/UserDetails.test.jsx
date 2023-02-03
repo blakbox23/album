@@ -13,6 +13,7 @@ describe('The UserDetails Page', () => {
     const mockData = {
       id: '1',
       name: 'Leanne',
+      website: 'www.leanne.com',
     };
     const mockFetchData = vi
       .spyOn(api, 'getUser')
@@ -29,7 +30,7 @@ describe('The UserDetails Page', () => {
     expect(mockFetchData).toHaveBeenCalled();
     await waitFor(() => {
       expect(screen.getByText('Leanne')).toBeInTheDocument();
-      // expect(screen.getByTestId("name").value).toEqual("Leanne");
+      expect(screen.getByText('www.leanne.com')).toBeInTheDocument();
     });
   });
 

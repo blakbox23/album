@@ -1,5 +1,5 @@
 import { vi } from 'vitest';
-import { render, waitFor } from '@testing-library/react';
+import { render, screen, waitFor } from '@testing-library/react';
 import { BrowserRouter } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import { api } from '../src/store/Api';
@@ -8,7 +8,7 @@ import AlbumDetails from '../src/pages/AlbumDetails';
 
 describe('The AlbumDetails Page', () => {
   test('getAlbum request is being called and UI updated appropriately', async () => {
-    const mockData = {
+    const albumMockData = {
       album: { title: 'album name' },
       photos: [
         { title: 'veritatis numquam eius' },
@@ -18,7 +18,7 @@ describe('The AlbumDetails Page', () => {
 
     const mockFetchData = vi
       .spyOn(api, 'getAlbum')
-      .mockImplementation(async () => mockData);
+      .mockImplementation(async () => albumMockData);
     render(
       <BrowserRouter>
         <Provider store={store}>
@@ -29,8 +29,8 @@ describe('The AlbumDetails Page', () => {
 
     expect(mockFetchData).toHaveBeenCalled();
     await waitFor(() => {
-      // expect(screen.getByText('album name')).toBeInTheDocument();
-      // expect(screen.getByText('(2) photos')).toBeInTheDocument();
+      expect(screen.getByText('album name')).toBeInTheDocument();
+      expect(screen.getByText('(2) photos')).toBeInTheDocument();
     });
   });
 });

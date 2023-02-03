@@ -21,7 +21,7 @@ function AlbumDetails() {
   const [isLoaded, setIsLoaded] = useState(pending);
 
   if (pending === true) {
-    setTimeout(() => setIsLoaded(true), 1800);
+    setTimeout(() => setIsLoaded(true), 1000);
   }
 
   return (

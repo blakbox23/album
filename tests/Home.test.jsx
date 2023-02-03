@@ -28,7 +28,6 @@ describe('The Landing Page', () => {
 
     expect(mockFetchData).toHaveBeenCalled();
     await waitFor(() => {
-      // expect(screen.getByText('Log in')).toBeInTheDocument();
       expect(screen.getByText('Breta')).toBeInTheDocument();
     });
   });
