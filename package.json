@@ -1,3 +1,4 @@
+
 {
   "name": "album",
   "private": true,
@@ -9,6 +10,9 @@
     "preview": "vite preview",
     "test": "vitest"
   },
+
+  "homepage": "https://blakbox23.github.io/album",
+
   "dependencies": {
     "@redux-saga/core": "^1.2.2",
     "axios": "^1.2.4",

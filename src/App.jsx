@@ -19,13 +19,13 @@ function App() {
         // https://firebase.google.com/docs/reference/js/firebase.User
         const { uid } = user;
         sessionStorage.setItem('albumUser', uid);
-        navigate('/home');
 
         // ...
       } else {
         // User is signed out
         // ...
         sessionStorage.removeItem('albumUser');
+        navigate('/');
       }
     });
   }, []);

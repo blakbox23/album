@@ -52,7 +52,7 @@
 .login-banner {
   background-color: #87e387;
 
-  /* background-image: url("../public/images/astronaut_camera-removebg-preview.png"); */
+  /* background-image: url("../images/astronaut_camera-removebg-preview.png"); */
   background-image:
     linear-gradient(
       to bottom,
@@ -69,7 +69,7 @@
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  background-image: url("../public/images/loginCam.jpg");
+  background-image: url("../images/loginCam.jpg");
 }
 
 .mobile {
