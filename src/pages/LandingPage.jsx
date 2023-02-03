@@ -1,16 +1,16 @@
-import AppNav from '../components/AppNav';
 import { useNavigate } from 'react-router-dom';
+import AppNav from '../components/AppNav';
 
 function LandingPage() {
-  const navigate = useNavigate()
+  const navigate = useNavigate();
   const user = sessionStorage.getItem('albumUser');
 
-  const handleLoggedOut = () =>{
-     navigate("/login")
-    }
-    const handleLoggedIn = () =>{
-      navigate("/home")
-     }
+  const handleLoggedOut = () => {
+    navigate('/login');
+  };
+  const handleLoggedIn = () => {
+    navigate('/home');
+  };
 
   return (
     <>
@@ -29,12 +29,13 @@ function LandingPage() {
           </div>
           <div className="w-75 d-flex justify-content-center align-items-center mx-auto">
             {user === null ? (
-            <button type="button" onClick={handleLoggedOut}>
-              Log in
-            </button>):(
+              <button type="button" onClick={handleLoggedOut}>
+                Log in
+              </button>
+            ) : (
               <button type="button" onClick={handleLoggedIn}>
-              Home
-            </button>
+                Home
+              </button>
             )}
           </div>
 
