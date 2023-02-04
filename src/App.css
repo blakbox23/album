@@ -150,7 +150,7 @@
   z-index: 3;
 }
 
-.paralax-3{
+.paralax-3 {
   background: url("../images/loginCam.jpg") no-repeat fixed 100%;
   height: 50vh;
 }
