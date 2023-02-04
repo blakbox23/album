@@ -24,7 +24,7 @@ function AppNav() {
     });
   };
 
-  const navStyle = (user ? 'mb-3 text-dark bg-white' : 'mb-3 text-white bg-transparent');
+  const navStyle = (user ? 'mb-3 text-dark bg-white navbar-light' : 'mb-3 text-white bg-transparent navbar-dark');
 
   return (
     <>
@@ -55,16 +55,16 @@ function AppNav() {
               <Offcanvas.Body>
                 <div style={{ marginLeft: 'auto' }}>
                   {user ? (
-                    <>
-                      <Nav className="justify-content-end flex-grow-1 pe-3">
-                        <Nav.Link to="/home" as={NavLink}>
-                          Home
-                        </Nav.Link>
-                        <button type="button" className="p-2 border-0 bg-info text-white rounded" onClick={handleLogout}>
-                          Log out
-                        </button>
-                      </Nav>
-                    </>
+
+                    <Nav className="justify-content-end flex-grow-1 pe-3">
+                      <Nav.Link to="/home" as={NavLink}>
+                        Home
+                      </Nav.Link>
+                      <button type="button" className="p-2 border-0 bg-info text-white rounded" onClick={handleLogout}>
+                        Log out
+                      </button>
+                    </Nav>
+
                   ) : (
                     <>
                       <Nav className="justify-content-end flex-grow-1 pe-3 ">

@@ -8,6 +8,7 @@ import AppNav from './components/AppNav';
 import LandingPage from './pages/LandingPage';
 import routes from '../router/routes';
 import { auth } from './authConfig/firebase';
+import NotFound from './pages/NotFound';
 
 function App() {
   const navigate = useNavigate();
@@ -47,6 +48,8 @@ function App() {
             <Route path="/" element={<LandingPage />} />
             <Route path="/login" element={<Login />} />
             <Route path="/sign-up" element={<Signup />} />
+            <Route path="*" element={<NotFound />} />
+
           </Routes>
         </>
       )}

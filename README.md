@@ -1,21 +1,17 @@
 # Jil Album
 
-"Jil album" is a webapp for displaying resources retrieved from THIS API. It is a Single Page App (SPA) that allows users to:
-- Reserve a spot on misson.
-- Reserve a spot on rocket.
-- Check all the rockets and missons reserved.
+"Jil album" is a webapp for displaying resources retrieved from [this API](https://jsonplaceholder.typicode.com/). 
 
-  ![rockets](./src/assets/Rockets.png)
 
-  ![missions](./src/assets/Missions.png)
+  ![Landing page](./images/Landing.PNG)
   
-  ![profile](./src/assets/Profile.png)
+  ![Home](./images//Home.PNG)
 
 ### LiveLink
 [Link](https://lighthearted-cascaron-2f0864.netlify.app/#/)
 
 ### Project Requirements
-
+JIL Album project requirements
 
 ## Built With
 - JS
@@ -30,7 +26,6 @@
 ### Prerequisites
 
 - Node.js
-- npm
 
 ### Setup
 
@@ -46,8 +41,15 @@ Install dependencies:
 
 ```
 npm install
-npm update
 npm run dev
+```
+
+### Run tests
+
+To run tests,
+
+```
+npm run test
 ```
 
 ## Author's
@@ -57,12 +59,4 @@ npm run dev
 - GitHub: [@Blakbox23](https://github.com/blakbox23) 
 - Twitter: [@blakbox23](https://twitter.com/blakbox23) 
 - LinkedIn: [Peter Mbuthia](https://www.linkedin.com/in/peter-mbuthia) 
-
-
-## 🤝 Contributing
-
-
-## Show your support
-
-Give a ⭐️ if you like this project!
 

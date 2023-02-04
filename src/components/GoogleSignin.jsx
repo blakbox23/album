@@ -23,7 +23,7 @@ function GoogleSignin() {
 
   return (
     <div className="GoogleSignin">
-      <button type="button" className="google-btn" onClick={() => handleOnClick(googleProvider)}>
+      <button type="button" className="google-btn" onClick={() => handleOnClick(googleProvider)} aria-label="google-btn">
         <FcGoogle style={{ fontSize: '1.5rem' }} />
         {' '}
         Sign up with Google

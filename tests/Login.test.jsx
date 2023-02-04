@@ -14,15 +14,4 @@ describe('The Log in Page', () => {
     const loginForm = screen.getByRole('form', { name: 'login' });
     expect(loginForm).toBeInTheDocument();
   });
-
-  //   test("Should call the login function ", () => {
-  //     render(
-  //       <BrowserRouter>
-  //         <Login />
-  //       </BrowserRouter>
-  //     );
-
-  //     const loginForm = screen.getByRole('form', { name: 'login' })
-  //     expect(loginForm).toBeInTheDocument();
-  //   });
 });
