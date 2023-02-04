@@ -7,13 +7,17 @@
     "dev": "vite",
     "build": "vite build",
     "preview": "vite preview",
-    "test": "vitest"
+    "test": "vitest",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
   },
+  "homepage": "https://blakbox23.github.io/album",
   "dependencies": {
     "@redux-saga/core": "^1.2.2",
     "axios": "^1.2.4",
     "bootstrap": "^5.2.3",
     "firebase": "^9.16.0",
+    "gh-pages": "^5.0.0",
     "prop-types": "^15.8.1",
     "react": "^18.2.0",
     "react-bootstrap": "^2.7.0",

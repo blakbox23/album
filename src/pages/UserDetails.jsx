@@ -70,7 +70,7 @@ function UserDetails() {
                 </div>
               </div>
 
-              <div className=" pt-5">
+              <div className=" pt-3">
                 <p className="text-center fs-4 fw-bold">ALBUMS</p>
 
                 <div>
