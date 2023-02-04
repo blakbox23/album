@@ -3,6 +3,7 @@ import AlbumDetails from '../src/pages/AlbumDetails';
 import PhotoDetails from '../src/pages/PhotoDetails';
 import Home from '../src/pages/Home';
 import LandingPage from '../src/pages/LandingPage';
+import NotFound from '../src/pages/NotFound';
 
 const routes = [
   {
@@ -29,6 +30,11 @@ const routes = [
     path: '/photos/:id',
     name: 'PhotoDetails',
     component: <PhotoDetails />,
+  },
+  {
+    path: '*',
+    name: 'NotFound',
+    component: <NotFound />,
   },
 
 ];
