@@ -35,7 +35,7 @@ function AppNav() {
           className={navStyle}
         >
           <Container className="d-flex justify-content-between">
-            <div className="fw-bold fs-5">JIL Album</div>
+            <div className="fw-bold fs-5">SIL Album</div>
 
             <Navbar.Toggle
               aria-controls={`offcanvasNavbar-expand-${expand}`}
@@ -49,7 +49,7 @@ function AppNav() {
             >
               <Offcanvas.Header closeButton>
                 <Offcanvas.Title id={`offcanvasNavbarLabel-expand-${expand}`}>
-                  JiL Album
+                  SIL Album
                 </Offcanvas.Title>
               </Offcanvas.Header>
               <Offcanvas.Body>

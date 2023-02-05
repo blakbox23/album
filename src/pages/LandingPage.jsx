@@ -45,7 +45,7 @@ function LandingPage() {
         </div>
       </div>
 
-      <div className="paralax-3" />
+      <div className="paralax" />
 
       <div className="about-section text-center w-75 m-auto py-5 my-5">
         <Row xs={1} sm={2} md={3} className="g-4">
@@ -106,7 +106,6 @@ function LandingPage() {
         </Row>
       </div>
 
-      {/* <div className="paralax-3" /> */}
       <Footer />
 
     </>
