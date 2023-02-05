@@ -1,6 +1,6 @@
-# Jil Album
+# SIL Album
 
-"Jil album" is a webapp for displaying resources retrieved from [this API](https://jsonplaceholder.typicode.com/). 
+"SIL album" is a webapp for displaying resources retrieved from [this API](https://jsonplaceholder.typicode.com/). 
 
 
   ![Landing page](./images/Landing.PNG)
@@ -11,7 +11,7 @@
 [Link](https://lighthearted-cascaron-2f0864.netlify.app/#/)
 
 ### Project Requirements
-JIL Album project requirements
+See SIL FrontEnd project requirements
 
 ## Built With
 - JS
